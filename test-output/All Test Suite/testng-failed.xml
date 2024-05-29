@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="C:/Users/AlbertHughes/Desktop/Week3_Lab(failed)">
+    <classes>
+      <class name="TestWindowsOperations">
+        <methods>
+          <include name="closeTest"/>
+          <include name="Window"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- TestWindowsOperations -->
+      <class name="TestTables">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="TestItemPrices"/>
+          <include name="closeTest"/>
+        </methods>
+      </class> <!-- TestTables -->
+      <class name="TestModals">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="exit"/>
+          <include name="usingmodal"/>
+        </methods>
+      </class> <!-- TestModals -->
+      <class name="TestUpload">
+        <methods>
+          <include name="Upload"/>
+          <include name="BeforeTest"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- TestUpload -->
+      <class name="TestPopUps">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="PopupAlert"/>
+          <include name="exit"/>
+        </methods>
+      </class> <!-- TestPopUps -->
+      <class name="TestDownload">
+        <methods>
+          <include name="clickDownload"/>
+          <include name="BeforeTest"/>
+          <include name="AfterTest"/>
+        </methods>
+      </class> <!-- TestDownload -->
+      <class name="TestCalendars">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="selectDate"/>
+          <include name="exit"/>
+        </methods>
+      </class> <!-- TestCalendars -->
+      <class name="TestFormfields">
+        <methods>
+          <include name="field"/>
+          <include name="exit"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- TestFormfields -->
+      <class name="TestSliders">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="AfterTest"/>
+          <include name="sliders"/>
+        </methods>
+      </class> <!-- TestSliders -->
+    </classes>
+  </test> <!-- C:/Users/AlbertHughes/Desktop/Week3_Lab(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

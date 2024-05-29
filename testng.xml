@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/AlbertHughes/Desktop/Week3_Lab">
+        <classes>
+            <class name="TestFormfields"/>
+            <class name="TestPopUps"/>
+            <class name="TestCalendars"/>
+            <class name="TestModals"/>
+            <class name="TestTables"/>
+            <class name="TestWindowsOperations"/>
+            <class name="TestUpload"/>
+            <class name="TestDownload"/>
+            <class name="TestSliders"/>
+        </classes>
+    </test>
+</suite>
