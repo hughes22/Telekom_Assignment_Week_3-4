@@ -7,10 +7,13 @@ import org.testng.annotations.Test;
 
 public class TestWindowsOperations {
         WebDriver driver;
+    private ConfigManager config;
         @BeforeTest
          public void beforeTest(){
+            config = new ConfigManager();
+            String baseURL = config.getProperty("baseURL6");
             driver = new FirefoxDriver();
-            driver.get("https://practice-automation.com/window-operations/");
+            driver.get(baseURL);
             driver.manage().window().maximize();
         }
     @Test

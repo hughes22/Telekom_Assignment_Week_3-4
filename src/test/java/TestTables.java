@@ -20,17 +20,12 @@ WebDriver driver;
     public void TestItemPrices() throws InterruptedException {
         Tables price = new Tables(driver);
         price.simpleTable1();
-        Thread.sleep(5000);
         price.sortableTable();
-        Thread.sleep(5000);
         price.Search();
-        Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //Scroll down till the bottom of the page
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-        Thread.sleep(2000);
         price.VerifyRecord();
-        Thread.sleep(2000);
 
     }
     @AfterTest

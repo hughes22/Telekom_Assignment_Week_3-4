@@ -24,7 +24,6 @@ public class TestCalendars {
         Calendars Date = new Calendars(driver);
         Date.ClickOnCalendar();
         Date.selectDate();
-        Thread.sleep(5000);
         Date.clickSubmit();
         Date.VerifyMessageDisplayed();
     }

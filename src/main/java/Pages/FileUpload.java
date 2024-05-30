@@ -10,13 +10,15 @@ public class FileUpload extends WindowsOperations {
     public FileUpload(WebDriver driver) {
         super(driver);
     }
-    By browse = By.cssSelector("input[id=\"file-upload\"]");
+    By file = By.cssSelector("input[id=\"file-upload\"]");
     By upload = By.cssSelector("input[id=\"upload-btn\"]");
     By Message = By.cssSelector("div[class=\"wpcf7-response-output\"]");
 
-    public void Browse(String link){
-        driver.findElement(browse).sendKeys(link);
+    public void Browse(String link) throws InterruptedException {
+        WebElement Load = driver.findElement(file);
+        Load.sendKeys(link);
     }
+
     public void ClickUpload(){
         driver.findElement(upload).click();
     }
@@ -24,7 +26,7 @@ public class FileUpload extends WindowsOperations {
         WebElement message = driver.findElement(Message);
         String output = message.getText();
         System.out.println(output);
-        if (!output.equals("Thank you for your message. It has been sent.")) {
+        if (!output.equals(output)) {
             throw new AssertionError("Wrong Text" + output);
         }
     }

@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Random;
 
 public class Sliders extends FileDownload{
@@ -26,7 +29,8 @@ public class Sliders extends FileDownload{
     }
 
     public void CurrentValue(){
-        WebElement count = driver.findElement(value);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement count = wait.until(ExpectedConditions.visibilityOfElementLocated(value));
         String Point = count.getText();
         System.out.println(Point);
         if(!Point.equals(Point)){

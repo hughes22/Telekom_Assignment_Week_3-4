@@ -17,11 +17,12 @@ public class TestUpload {
         driver.get(baseURL);
     }
     @Test
-    public void Upload(){
-        FileUpload Browse = new FileUpload(driver);
+    public void Upload() throws InterruptedException {
+        FileUpload browse = new FileUpload(driver);
         String link = config.getProperty("link");
-        Browse.Browse(link);
-        Browse.ClickUpload();
+        browse.Browse(link);
+        browse.ClickUpload();
+        browse.AssertMessage();
     }
 
     @AfterTest

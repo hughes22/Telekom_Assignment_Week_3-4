@@ -22,34 +22,20 @@ public class TestFormfields {
     @Test
     public void field() throws InterruptedException {
         Formfields forms = new Formfields(driver);
-        Thread.sleep(5000);
         String username = config.getProperty("username");
-        forms.enterFirstName("username");
-        Thread.sleep(5000);
-
+        forms.enterFirstName(username);
         forms.selectFavoritedrink();
-        Thread.sleep(5000);
-
         forms.selectFavoriteColor();
-        Thread.sleep(5000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //Scroll down till the bottom of the page
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-
         forms.selectAnySiblings();
-        Thread.sleep(5000);
-
         forms.selectFastAnimals();
-        Thread.sleep(5000);
         String email = config.getProperty("email");
         forms.enterEmail(email);
-        Thread.sleep(5000);
         String messages = config.getProperty("messages");
         forms.enterMessage(messages);
-        Thread.sleep(5000);
-
         forms.clickSubmit();
-        Thread.sleep(5000);
     }
     @AfterTest
     public void exit(){

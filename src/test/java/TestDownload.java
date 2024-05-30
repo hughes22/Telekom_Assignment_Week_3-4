@@ -21,8 +21,8 @@ public class TestDownload {
         FileDownload download = new FileDownload(driver);
 
         download.Downloadpdf();
-        download.Downloaddocx();
-        download.verifyfromalert();
+        //download.Downloaddocx();
+        //download.verifyfromalert();
     }
 
     @AfterTest

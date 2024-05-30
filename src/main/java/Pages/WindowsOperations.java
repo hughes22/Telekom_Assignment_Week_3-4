@@ -3,14 +3,20 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Set;
 
 public class WindowsOperations extends Tables {
     private String originalWindowHandle;
+    private WebDriverWait wait;
 
     public WindowsOperations(WebDriver driver) {
+
         super(driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     By newtab = By.cssSelector("button[onclick=\"newTab()\"]");
@@ -27,42 +33,32 @@ public class WindowsOperations extends Tables {
 
     public void NewTab() throws InterruptedException {
         driver.findElement(newtab).click();
-        Thread.sleep(2000);
         originalWindowHandle = driver.getWindowHandle();
         switchToNewWindow("https://automatenow.io/");
-        driver.findElement(dialog).isDisplayed();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(logo));
         WebElement Logo = driver.findElement(logo);
         System.out.println(Logo.getText());
-        Thread.sleep(1000);
         switchBackToOriginalWindow();
-        Thread.sleep(2000);
     }
     public void ReplaceWindow() throws InterruptedException {
         driver.findElement(replacewindow).click();
-        Thread.sleep(2000);
         originalWindowHandle = driver.getWindowHandle();
         switchToNewWindow("https://automatenow.io/");
-        driver.findElement(dialog).isDisplayed();
+        wait.until(ExpectedConditions.presenceOfElementLocated(rest));
         driver.findElement(rest).click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(subscribe));
         WebElement Email = driver.findElement(subscribe);
         Email.sendKeys("www.dr2who@gmail.com");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(clicksubscribe));
         driver.findElement(clicksubscribe).click();
-        Thread.sleep(5000);
-        //driver.switchTo().alert().accept();
-        //Thread.sleep(2000);
+        wait.until(ExpectedConditions.urlToBe("https://automatenow.io/rest-assured-tutorials/"));
         driver.navigate().to("https://practice-automation.com/window-operations/");
-        //switchBackToOriginalWindow();
-        Thread.sleep(2000);
     }
     public void NewWindow() throws InterruptedException {
         driver.findElement(window).click();
-        Thread.sleep(2000);
         originalWindowHandle = driver.getWindowHandle();
         switchToNewWindow("https://automatenow.io/");
-        Thread.sleep(5000);
+        wait.until(ExpectedConditions.urlContains("https://automatenow.io/"));
     }
 
     private void switchToNewWindow(String url) throws InterruptedException {
@@ -73,10 +69,8 @@ public class WindowsOperations extends Tables {
                 break;
             }
         }
-        driver.get(url);
     }
     private void switchBackToOriginalWindow() throws InterruptedException {
         driver.switchTo().window(originalWindowHandle);
-        Thread.sleep(2000);
     }
 }
